@@ -20,6 +20,8 @@ public class Main {
         log.info("number = {}",number);
         System.out.println("Max Number is: " + numberGenerator.getMaxNumber() + " random number is: " + numberGenerator.next());
 
+        Game game = context.getBean("game", Game.class);
+        //game.reset();move to init method
         //context.close();
 
     }
