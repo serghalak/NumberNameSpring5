@@ -3,6 +3,7 @@ package academy.learnprogramming;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
@@ -13,7 +14,7 @@ public class Main {
         log.info("Guess the number Game");
         System.out.println("Main ...........");
 
-        ApplicationContext context=new ClassPathXmlApplicationContext(CONFIG_LOCATION);
+        ConfigurableApplicationContext context=new ClassPathXmlApplicationContext(CONFIG_LOCATION);
         NumberGenerator numberGenerator = context.getBean("numberGenerator", NumberGenerator.class);
 
         int number=numberGenerator.next();
@@ -22,7 +23,7 @@ public class Main {
 
         Game game = context.getBean("game", Game.class);
         //game.reset();move to init method
-        //context.close();
+        context.close();
 
     }
 
