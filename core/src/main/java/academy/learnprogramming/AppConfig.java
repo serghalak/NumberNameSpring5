@@ -11,7 +11,7 @@ public class AppConfig {
 
     @Bean
     public Game game(){
-        return new GameImpl(numberGenerator());
+        return new GameImpl();
     }
 
     @Bean
