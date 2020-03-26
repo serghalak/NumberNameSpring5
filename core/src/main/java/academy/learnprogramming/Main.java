@@ -2,10 +2,8 @@ package academy.learnprogramming;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     private final static Logger log = LoggerFactory.getLogger(Main.class);
@@ -17,18 +15,20 @@ public class Main {
 
         //ConfigurableApplicationContext context=new ClassPathXmlApplicationContext(CONFIG_LOCATION);
         ConfigurableApplicationContext context = new AnnotationConfigApplicationContext("AppConfig.class");
-
-        NumberGenerator numberGenerator = context.getBean("numberGenerator", NumberGenerator.class);
-
-        int number=numberGenerator.next();
-        log.info("number = {}",number);
-        System.out.println("Max Number is: " + numberGenerator.getMaxNumber() + " random number is: " + numberGenerator.next());
-
-        //Game game = context.getBean("game", Game.class);
-        MessageGenerator messageGenerator=context.getBean("messageGenerator",MessageGenerator.class);
-        log.info("getMainMessage = {}",messageGenerator.getMainMessage());
-        log.info("getResultMessage = {}",messageGenerator.getResultMessage());
-        //game.reset();move to init method
+        System.out.println("Context ...........");
+        Game game = context.getBean("game", Game.class);
+        System.out.println("game: " + game);
+//        NumberGenerator numberGenerator = context.getBean( NumberGenerator.class);
+//
+//        int number=numberGenerator.next();
+//        log.info("number = {}",number);
+//        System.out.println("Max Number is: " + numberGenerator.getMaxNumber() + " random number is: " + numberGenerator.next());
+//
+//        //Game game = context.getBean("game", Game.class);
+//        MessageGenerator messageGenerator=context.getBean("messageGenerator",MessageGenerator.class);
+//        log.info("getMainMessage = {}",messageGenerator.getMainMessage());
+//        log.info("getResultMessage = {}",messageGenerator.getResultMessage());
+//        //game.reset();move to init method
         context.close();
 
     }
