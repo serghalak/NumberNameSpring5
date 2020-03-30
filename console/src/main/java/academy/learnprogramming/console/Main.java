@@ -1,4 +1,4 @@
-package academy.learnproject.console;
+package academy.learnprogramming.console;
 
 import academy.learnprogramming.AppConfig;
 import academy.learnprogramming.Game;
@@ -34,6 +34,8 @@ public class Main {
         log.info("getResultMessage = {}",messageGenerator.getResultMessage());
         //game.reset();move to init method
         context.close();
+
+
 
     }
 

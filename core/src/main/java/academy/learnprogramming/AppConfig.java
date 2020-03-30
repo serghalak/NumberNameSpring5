@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 
-//@ComponentScan(basePackages = "academy.learnprogramming")
+@ComponentScan(basePackages = "academy.learnprogramming")
 @Configuration
 public class AppConfig {
 
