@@ -9,22 +9,32 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 //@Component("game")
+@Component
 public class GameImpl implements Game {
 
     private static final Logger log= LoggerFactory.getLogger(GameImpl.class);
 
-    @Autowired
+    //@Autowired
     private NumberGenerator numberGenerator;
-    @Autowired
-    @GuessCount
+    //@Autowired
+    //@GuessCount
     private int guessCount;
-    @MaxNumber
+    //@Autowired
+    //@MaxNumber
     private int number;
     private int guess;
     private int smallest;
     private int biggest;
     private int remainingGuesses;
     private boolean validNumberRange = true;
+
+    public GameImpl(NumberGenerator numberGenerator, @GuessCount int guessCount) {
+        this.numberGenerator = numberGenerator;
+        this.guessCount = guessCount;
+
+    }
+
+
 
     //@Autowired
 //    public GameImpl(NumberGenerator numberGenerator) {

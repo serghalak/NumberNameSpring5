@@ -15,11 +15,17 @@ import java.util.Scanner;
 public class ConsoleNumberGuess /*implements ApplicationListener<ContextRefreshedEvent>*/{
     private static final Logger log= LoggerFactory.getLogger(ConsoleNumberGuess.class);
 
-    @Autowired
+    //@Autowired
     private Game game;
 
-    @Autowired
+    //@Autowired
     private MessageGenerator messageGenerator;
+
+    @Autowired
+    public ConsoleNumberGuess(Game game, MessageGenerator messageGenerator) {
+        this.game = game;
+        this.messageGenerator = messageGenerator;
+    }
 
     //@Override
     @EventListener(ContextRefreshedEvent.class)
