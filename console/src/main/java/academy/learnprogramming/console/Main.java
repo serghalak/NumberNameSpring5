@@ -5,13 +5,15 @@ import academy.learnprogramming.Game;
 import academy.learnprogramming.MessageGenerator;
 import academy.learnprogramming.NumberGenerator;
 import academy.learnprogramming.config.GameConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+@Slf4j
 public class Main {
-    private final static Logger log = LoggerFactory.getLogger(Main.class);
+    //private final static Logger log = LoggerFactory.getLogger(Main.class);
     //private static final String CONFIG_LOCATION="bean.xml";
 
     public static void main(String[] args) {
