@@ -11,7 +11,6 @@ import java.util.Random;
 //@Component("numberGenerator")
 @Component
 @Slf4j
-
 public class NumberGeneratorImpl implements NumberGenerator {
 
     private final Random random=new Random();
