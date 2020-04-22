@@ -1,0 +1,5 @@
+academy\learnprogramming\config\WebConfig.class
+academy\learnprogramming\service\GameService.class
+academy\learnprogramming\WebMain.class
+academy\learnprogramming\service\impl\GameServiceImpl.class
+academy\learnprogramming\util\ViewNames.class
