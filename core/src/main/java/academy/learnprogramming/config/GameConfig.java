@@ -14,11 +14,11 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:config/game.properties")
 public class GameConfig {
 
-    @Value("${game.maxNumber:20}") //default value
+    @Value("${game.maxNumber}") //default value
     private int maxNumber;
-    @Value("${game.guessCount:5}")
+    @Value("${game.guessCount}")
     private int guessCount;
-    @Value("${game.minNumber:5}")
+    @Value("${game.minNumber}")
     private int minNumber;
 
     @Bean
