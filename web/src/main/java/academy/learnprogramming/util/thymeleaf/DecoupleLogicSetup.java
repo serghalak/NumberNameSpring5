@@ -18,7 +18,8 @@ public class DecoupleLogicSetup {
 
     @PostConstruct
     public void init(){
+
         templateResolver.setUseDecoupledLogic(true);
-        log.info("Decouple logic enabled");
+        log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Decouple logic enabled");
     }
 }
