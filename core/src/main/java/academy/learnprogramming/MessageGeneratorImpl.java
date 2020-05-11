@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -15,13 +17,17 @@ public class MessageGeneratorImpl implements MessageGenerator {
 
     //private static final Logger log= LoggerFactory.getLogger(MessageGeneratorImpl.class);
 
+    private static final String MAIN_MESSAGE="game.main.message";
+
     //@Autowired
     private Game game;
    //private int guessCount=10;
+    private MessageSource messageSource;
 
     @Autowired
-    public MessageGeneratorImpl(Game game) {
+    public MessageGeneratorImpl(Game game,MessageSource messageSource) {
         this.game = game;
+        this.messageSource=messageSource;
     }
 
     @PostConstruct
@@ -32,9 +38,11 @@ public class MessageGeneratorImpl implements MessageGenerator {
     @Override
     public String getMainMessage() {
         //return "getMainMessage() called";
-        return "number is between " +
-                game.getSmallest() + " and "+
-                game.getBiggest() + ". Can you guess it?";
+        return getMessage(MAIN_MESSAGE
+                ,game.getSmallest(),game.getBiggest());
+//        return "number is between " +
+//                game.getSmallest() + " and "+
+////                game.getBiggest() + ". Can you guess it?";
     }
 
     @Override
@@ -55,8 +63,10 @@ public class MessageGeneratorImpl implements MessageGenerator {
             return direction + "! You have " + game.getRemainingGuesses()
                     + " guess left";
         }
+        //return "getResultMessage() called";
+    }
 
-
-       // return "getResultMessage() called";
+    private String getMessage(String code,Object ... args){
+        return messageSource.getMessage(code,args, LocaleContextHolder.getLocale());
     }
 }
